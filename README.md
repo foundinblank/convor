@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-convor
-======
+convor <img src="man/figures/logo.png" align="right" height=140/>
+=================================================================
 
-The goal of convor is to ...
+The goal of convor is to make data science at Convo easier!
 
 Installation
 ------------
