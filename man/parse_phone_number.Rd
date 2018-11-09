@@ -13,7 +13,8 @@ parse_phone_number(x)
 Drops all non-numeric characters from phone numbers (and maybe any other strings).
 }
 \examples{
-parse_phone_number()
+x <- c('(858) 555-1234', '(619) 555-6898', '585-555-5432')
+parse_phone_number(x)
 }
 \keyword{number}
 \keyword{parse}
