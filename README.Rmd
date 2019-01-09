@@ -38,3 +38,7 @@ convor::connect_reporting()
 `parse_phone_number()` quickly strips all non-numeric characters from phone numbers.
 
 `get_live_tdns()` will pull a list of all TDNs that were "live" - that is, in our `locations` table - on a specific date. Useful for historical customer base comparisons.
+
+`get_urd_regs()` pulls a table of the latest URD registration data for each TDN. Useful for URD compliance purposes. 
+
+`write_csv_rla()` writes CSV files in RLA-friendly format. 
