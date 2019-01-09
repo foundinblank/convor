@@ -40,3 +40,35 @@ get_live_tdns <- function(x){
     slice(1) %>%
     ungroup()
 }
+
+#' @title Retrieve URD Registration Data
+#'
+#' @description Often we need to pull this information from our URD database. This will produce a table of each TDN's latest URD registration data and status.
+#' @keywords urd tdn registration reg
+#' @export
+#' @examples get_urd_regs()
+
+get_urd_regs <- function(){
+  if (!exists("urd")) {connect_urd()}
+  reg_data <<- tbl(urd, "registrations_data") %>%
+    select(phone_number, reg_verification_uuid) %>%
+    collect()
+  reg_ver <<- tbl(urd, "registrations_verification") %>%
+    select(uuid, status, urdid, updated_at, request_id) %>%
+    rename(reg_verification_uuid = uuid,
+           urd_status = status,
+           urd_id = urdid,
+           urd_updated_at = updated_at,
+           registration_request_id = request_id) %>%
+    collect()
+  regs <<- inner_join(reg_data, reg_ver, by = "reg_verification_uuid") %>%
+    mutate_at(vars(phone_number), as.character) %>%
+    group_by(phone_number) %>%
+    arrange(desc(urd_updated_at)) %>%
+    slice(1) %>%
+    ungroup()
+  rm("reg_data", envir = globalenv())
+  rm("reg_ver", envir = globalenv())
+}
+
+
