@@ -11,6 +11,8 @@ load_urd_users <- function(){
   urd_filenames <- list.files("~/Downloads/", pattern = "Users_(.*).xlsx")
   the_filename <- urd_filenames[length(urd_filenames)]
 
+  message(glue::glue("Loading URD file: {the_filename}"))
+
   # Read in URD file
   readxl::read_xlsx(glue::glue("~/Downloads/{the_filename}")) %>%
     janitor::clean_names() %>%
