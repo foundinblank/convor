@@ -1,7 +1,7 @@
 Package: convor
 Type: Package
 Title: R Functions for Convo Data Science
-Version: 0.3.0
+Version: 0.4.0
 Authors@R: person("Adam", "Stone", email = "adam.stone@convorelay.com",
   role = c("aut", "cre"))
 Description: A set of functions to make it easier to work with Convo's databases as well as some common operations for certain datasets.
@@ -10,6 +10,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     DBI,
+    RODBC,
     lubridate,
     RMariaDB,
     tidyverse

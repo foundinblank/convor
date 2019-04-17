@@ -115,3 +115,19 @@ connect_big3 <- function() {
   connect_reporting()
   connect_urd()
 }
+
+
+#' @title Connect to Snowflake Data Warehouse
+#'
+#' @description Connect to Snowflake Data Warehouse, our data warehouse. A [convodatawarehouse] odbc connection should be defined in your .odbc.ini file.
+#' @keywords connect snowflake
+#' connect_snowflake()
+connect_snowflake <- function() {
+  snowflake <<- RODBC::odbcConnect("convodatawarehouse")
+  if (exists("snowflake")) {
+    message("Connected to Snowflake.")
+  }
+  else{
+    message("Connection failed!")
+  }
+}
