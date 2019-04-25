@@ -1,3 +1,4 @@
 exportPattern("^[[:alpha:]]+")
 importFrom("stats", "filter")
 importFrom("utils", "write.csv")
+importFrom("RODBC", "sqlQuery")

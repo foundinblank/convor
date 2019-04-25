@@ -131,3 +131,15 @@ connect_snowflake <- function() {
     message("Connection failed!")
   }
 }
+
+#' @title Retrieve results from a query to Snowflake
+#'
+#' @description Will send the query to Snowflake and retrieve results in tidyverse-friendly format (i.e., a tibble with lower-case names).
+#' @keywords query snowflake
+#' tbl_snowflake()
+tbl_snowflake <- function(x) {
+  RODBC::sqlQuery(snowflake, x) %>%
+    tibble::as_tibble() %>%
+    janitor::clean_names()
+}
+
