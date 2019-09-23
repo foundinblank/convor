@@ -7,10 +7,10 @@ The goal of convor is to make data science at Convo easier!
 
 ### Installation
 
-You can install the released version of convor from [GitHub](https://github.com/foundinblank/convor) with:
+You can install the released version of convor from [GitHub](https://github.com/convo/convor) with:
 
 ``` r
-devtools::install_github("foundinblank/convor")
+devtools::install_github("convo/convor")
 ```
 
 ### Connections
